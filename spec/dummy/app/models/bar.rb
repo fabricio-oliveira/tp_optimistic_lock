@@ -8,6 +8,5 @@
 #  other :string
 #
 
-class Foo < ActiveRecord::Base
-  validate :optimistic_unique
+class Bar < ActiveRecord::Base
 end

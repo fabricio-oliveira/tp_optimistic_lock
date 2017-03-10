@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309220100) do
+ActiveRecord::Schema.define(version: 20170310160743) do
+
+  create_table "bars", force: :cascade do |t|
+    t.string   "other"
+    t.string   "uuid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bars", ["uuid"], name: "index_bars_on_uuid", unique: true
 
   create_table "foos", force: :cascade do |t|
     t.string   "other"
