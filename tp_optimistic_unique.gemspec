@@ -2,16 +2,16 @@
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require 'tp_ optimistic_unique/version'
+require 'tp_optimistic_unique/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'tp_ optimistic_unique'
-  s.version     = TPHealthcheck::VERSION
+  s.name        = 'tp_optimistic_unique'
+  s.version     = TPOptimisticUnique::VERSION
   s.authors     = ['Fabricio Oliveira']
   s.email       = ['fabricio.oliveira@m4u.com.br']
-  s.summary       = 'gem thas implement healthcheck'
-  s.homepage      = 'https://github.com/fabricio-oliveira/tp_heathcheck'
+  s.summary       = 'gem thas implement optimistic uuid'
+  s.homepage      = 'https://github.com/fabricio-oliveira/tp_optimistic-uuid'
   s.license       = 'MIT'
 
   s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']

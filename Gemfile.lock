@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tp_ optimistic_unique (0.1.4)
+    tp_optimistic_unique (0.1.4)
       httparty (>= 0.13.4)
       rails (>= 3)
 
@@ -172,7 +172,7 @@ DEPENDENCIES
   simplecov (~> 0.13.0)
   simplecov-rcov (~> 0.2.3)
   sqlite3 (~> 1.0)
-  tp_ optimistic_unique!
+  tp_optimistic_unique!
   webmock (~> 2.0.3)
 
 BUNDLED WITH
