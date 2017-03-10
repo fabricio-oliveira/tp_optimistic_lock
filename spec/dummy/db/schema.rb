@@ -13,13 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20170309220100) do
 
-  create_table "dummys", force: :cascade do |t|
+  create_table "foos", force: :cascade do |t|
     t.string   "other"
     t.string   "uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "dummys", ["uuid"], name: "index_dummys_on_uuid", unique: true
+  add_index "foos", ["uuid"], name: "index_foos_on_uuid", unique: true
 
 end
