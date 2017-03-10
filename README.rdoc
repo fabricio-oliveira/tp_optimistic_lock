@@ -1,0 +1,11 @@
+= Healthcheck
+
+This project provides a groups endpoints (two at the moment)  for health your application.
+
+/healtchecks/ping
+Return status code 200 and application name
+
+/healtchecks/database
+Return status code 200 and string 'OK' if database have'n error. Or status code 500 otherside
+
+This project rocks and uses MIT-LICENSE.
