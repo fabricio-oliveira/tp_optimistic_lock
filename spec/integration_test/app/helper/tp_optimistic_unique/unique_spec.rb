@@ -18,18 +18,18 @@ RSpec.describe TPRecordOptimistic, type: :request do
       end
     end
 
-    context 'When unique is not activated' do
-      before do
-        post bar_index_path
-      end
-
-      let(:uuid) do
-        SecureRandom.uuid
-      end
-
-      it 'Does return status_code: 400' do
-        expect { post bar_index_path }.to raise_error(ActiveRecord::RecordNotUnique)
-      end
-    end
+    # context 'When unique is not activated' do
+    #   before do
+    #     post bar_index_path
+    #   end
+    #
+    #   let(:uuid) do
+    #     SecureRandom.uuid
+    #   end
+    #
+    #   it 'Does return status_code: 400' do
+    #     expect { post bar_index_path }.to raise_error(ActiveRecord::RecordNotUnique)
+    #   end
+    # end
   end
 end

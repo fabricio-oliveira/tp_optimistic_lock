@@ -17,9 +17,9 @@ module TPRecordOptimistic
     return false
   end
 
-  def optimistic_unique
-    alias save save_optimistic
-  end
+  alias save save_optimistic
+
+  def optimistic_unique(args = {}); end
 end
 
 ActiveRecord::Base.send(:include, TPRecordOptimistic)
