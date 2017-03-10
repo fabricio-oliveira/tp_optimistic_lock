@@ -13,8 +13,8 @@ RSpec.describe TPRecordOptimistic::Unique, type: :request do
         SecureRandom.uuid
       end
 
-      it 'Does return status_code: 200' do
-        expect(response.body).to eq 200
+      it 'Does return status_code: 400' do
+        expect(response.status).to eq 400
       end
     end
   end

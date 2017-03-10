@@ -2,7 +2,8 @@
 class FooController < ActionController::Base
   def create
     foo = Foo.create(params.permit(:uuid, :other))
-    return render text: foo.errors, status: :bad_request if foo.errors?
-    render text: foo.errors, status: :ok
+    p 'teste'
+    return render nothing: true, status: :bad_request unless foo.errors.empty?
+    render nothing: true, status: :ok
   end
 end

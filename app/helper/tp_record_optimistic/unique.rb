@@ -4,6 +4,6 @@ class TPRecordOptimistic::Unique
     super(*args)
   rescue ActiveRecord::RecordNotUnique => e
     errors.add('all', e.to_s)
-    return nil
+    return false
   end
 end
