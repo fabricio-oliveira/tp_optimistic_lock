@@ -8,4 +8,4 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 *.gem
 spec/dummy/log/*
-covarege/*
+coverage/*
