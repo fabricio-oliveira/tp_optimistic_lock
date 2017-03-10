@@ -13,7 +13,7 @@ RSpec.describe TPOptimisticUnique::Unique, type: :helper do
       end
 
       it 'Does return status_code: 200' do
-        expect{ dummy.errors }.not_to empty
+        expect(dummy.errors).not_to be_empty
       end
     end
   end

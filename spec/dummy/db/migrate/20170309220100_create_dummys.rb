@@ -1,4 +1,4 @@
-class CreateOrders < ActiveRecord::Migration
+class CreateDummys < ActiveRecord::Migration
   def change
     create_table :dummys do |t|
       t.string :other

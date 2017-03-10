@@ -25,6 +25,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec-rails', '~> 3.0'
   s.add_development_dependency 'simplecov', '~> 0.13.0'
   s.add_development_dependency 'simplecov-rcov', '~> 0.2.3'
+  s.add_development_dependency 'factory_girl_rails', '~> 4.8.0'
+  s.add_development_dependency 'faker', '~> 1.7.3'
   s.add_development_dependency 'rubocop', '~> 0.47.1'
   s.add_development_dependency 'webmock', '~> 2.0.3'
   s.add_development_dependency 'sqlite3', '~>1.0'
