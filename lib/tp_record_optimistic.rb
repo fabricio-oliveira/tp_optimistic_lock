@@ -1,7 +1,7 @@
 # frozen_string_literal: true
+require 'active_record' unless defined? ActiveRecord
 
 module TPRecordOptimistic
-  require 'tp_record_optimistic/engine' if defined?(Rails)
   extend ActiveSupport::Concern
 
   def save(*args)
@@ -17,9 +17,17 @@ module TPRecordOptimistic
     return false
   end
 
-  alias save save_optimistic
-
-  def optimistic_unique(args = {}); end
+  def optimistic_unique(_args = {})
+    alias_method :save, :save_optimistic
+  end
 end
 
-ActiveRecord::Base.send(:include, TPRecordOptimistic)
+# ActiveRecord::Base.send(:include, TPRecordOptimistic)
+
+ActiveSupport.on_load(:active_record) do
+  class ActiveRecord::Base
+    def self.included(base)
+      base.send(:include, TPRecordOptimistic)
+    end
+  end
+end
