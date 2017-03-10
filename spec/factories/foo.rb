@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :dummy do
+  factory :foo do
     uuid { SecurtyRandom.uuid }
     other { Faker::ChuckNorris.fact }
   end

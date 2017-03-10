@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class TPOptimisticUnique::Unique
+class TPRecordOptimistic::Unique
   def save(*args)
     super(*args)
   rescue ActiveRecord::RecordNotUnique => e

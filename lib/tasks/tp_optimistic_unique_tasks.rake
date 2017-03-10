@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 # desc "Explaining what the task does"
-# task :tp_optimistic_unique do
+# task :tp_record_optimistic do
 #   # Task goes here
 # end

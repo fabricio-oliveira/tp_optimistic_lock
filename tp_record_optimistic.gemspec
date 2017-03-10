@@ -2,12 +2,12 @@
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 
 # Maintain your gem's version:
-require 'tp_optimistic_unique/version'
+require 'tp_record_optimistic/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = 'tp_optimistic_unique'
-  s.version     = TPOptimisticUnique::VERSION
+  s.name        = 'tp_record_optimistic'
+  s.version     = TPRecordOptimistic::VERSION
   s.authors     = ['Fabricio Oliveira']
   s.email       = ['fabricio.oliveira@m4u.com.br']
   s.summary       = 'gem thas implement optimistic uuid'
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
 
   s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
-  s.required_ruby_version = '>= 2.1'
+  s.required_ruby_version = '>= 2.2.2'
 
   s.add_dependency 'rails', '>=3'
   s.add_dependency 'httparty', '>=0.13.4'
@@ -28,6 +28,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'factory_girl_rails', '~> 4.8.0'
   s.add_development_dependency 'faker', '~> 1.7.3'
   s.add_development_dependency 'rubocop', '~> 0.47.1'
-  s.add_development_dependency 'webmock', '~> 2.0.3'
   s.add_development_dependency 'sqlite3', '~>1.0'
+  s.add_development_dependency 'annotate'
 end

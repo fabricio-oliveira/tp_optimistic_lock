@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe TPOptimisticUnique::Unique, type: :helper do
+RSpec.describe TPRecordOptimistic::Unique, type: :helper do
   describe 'create two model same uuid' do
     context 'When create two model same uuid' do
       let(:dummy) do
