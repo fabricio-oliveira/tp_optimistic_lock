@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'active_record' unless defined? ActiveRecord
+# require 'active_model' unless defined? ActiveModel
 
 module TPRecordOptimistic
   extend ActiveSupport::Concern
@@ -17,17 +18,25 @@ module TPRecordOptimistic
     return false
   end
 
-  def optimistic_unique(_args = {})
-    alias_method :save, :save_optimistic
-  end
+  # def optimistic_unique
+  #   alias_method :save, :save_optimistic
+  # end
 end
-
-# ActiveRecord::Base.send(:include, TPRecordOptimistic)
 
 ActiveSupport.on_load(:active_record) do
   class ActiveRecord::Base
-    def self.included(base)
-      base.send(:include, TPRecordOptimistic)
+    def self.acts_as_unique
+      include TPRecordOptimistic
+      alias_method :save, :save_optimistic
     end
   end
 end
+
+# class UniqueOptimistic < ActiveModel::Validator
+#   def validate(record)
+#     record.class_eval do
+#       include TPRecordOptimistic
+#       record.send(:optimistic_unique)
+#     end
+#   end
+# end

@@ -9,5 +9,6 @@
 #
 
 class Foo < ActiveRecord::Base
-  validate :optimistic_unique
+  # validates_with UniqueOptimistic
+  acts_as_unique
 end
