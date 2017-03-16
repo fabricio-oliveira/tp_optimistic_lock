@@ -3,14 +3,14 @@ require 'rails_helper'
 
 RSpec.describe TPRecordOptimistic, type: :request do
   describe 'create two model same uuid' do
-    context 'When unique is activated' do
+    context 'When have act_as_unique' do
       context 'create' do
         before do
           post foo_index_path
           post foo_index_path
         end
 
-        it 'Does return status_code: 400' do
+        it 'Does return status_code: 400 (get errors)' do
           expect(response.status).to eq 400
         end
       end
@@ -18,11 +18,10 @@ RSpec.describe TPRecordOptimistic, type: :request do
       context 'create!' do
         before do
           post pepe_index_path
-          post pepe_index_path
         end
 
-        it 'Does return status_code: 409' do
-          expect(response.status).to eq 409
+        it 'raise error ActiveRecord::RecordInvalid' do
+          expect { post pepe_index_path }.to raise_error(ActiveRecord::RecordInvalid)
         end
       end
     end
@@ -33,11 +32,7 @@ RSpec.describe TPRecordOptimistic, type: :request do
           post bar_index_path
         end
 
-        let(:uuid) do
-          SecureRandom.uuid
-        end
-
-        it 'Does return status_code: 400' do
+        it 'raise error ActiveRecord::RecordNotUnique' do
           expect { post bar_index_path }.to raise_error(ActiveRecord::RecordNotUnique)
         end
       end

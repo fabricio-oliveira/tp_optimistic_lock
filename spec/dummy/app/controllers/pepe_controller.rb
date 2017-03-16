@@ -5,14 +5,14 @@ class PepeController < ActionController::Base
     render nothing: true, status: :ok
   end
 
-  rescue_from StandardError, with: :handle_exception
-  rescue_from ActiveRecord::RecordInvalid, with: :handle_duplicated_exception
-
-  def handle_exception
-    render nothing: true, status: :internal_server_error
-  end
-
-  def handle_duplicated_exception
-    render nothing: true, status: :conflict
-  end
+  # rescue_from StandardError, with: :handle_exception
+  # rescue_from ActiveRecord::RecordInvalid, with: :handle_duplicated_exception
+  #
+  # def handle_exception
+  #   render nothing: true, status: :internal_server_error
+  # end
+  #
+  # def handle_duplicated_exception
+  #   render nothing: true, status: :conflict
+  # end
 end
