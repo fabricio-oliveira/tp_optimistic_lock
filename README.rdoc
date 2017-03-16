@@ -4,13 +4,13 @@ This gem improve the ActiveRecord to trate ActiveRecord::RecordNotUnique with op
 
 exemplo:
 
-def sample
+  def sample
     Bar.create(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
     bar = Bar.create(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
     
     #UNIQUE constraint failed
     bar.errors
-end
+  end
 
 
 def other_sample
