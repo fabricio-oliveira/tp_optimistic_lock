@@ -1,3 +1,3 @@
 = TPOptimistic
 
-Treat duplicated error is recovery like error
+This gem improve the ActiveRecord to trate ActiveRecord::RecordNotUnique
