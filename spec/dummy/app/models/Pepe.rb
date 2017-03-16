@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 # == Schema Information
 #
-# Table name: bars
+# Table name: pepes
 #
 #  id         :integer          not null, primary key
 #  other      :string
@@ -10,5 +10,7 @@
 #  updated_at :datetime         not null
 #
 
-class Bar < ActiveRecord::Base
+class Pepe < ActiveRecord::Base
+  # validates :uuid, uniqueness: true
+  acts_as_unique
 end

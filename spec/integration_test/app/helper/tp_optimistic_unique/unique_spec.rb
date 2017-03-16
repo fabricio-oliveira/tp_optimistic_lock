@@ -9,12 +9,19 @@ RSpec.describe TPRecordOptimistic, type: :request do
         post foo_index_path
       end
 
-      let(:uuid) do
-        SecureRandom.uuid
-      end
-
       it 'Does return status_code: 400' do
         expect(response.status).to eq 400
+      end
+    end
+
+    context 'When unique is activated and create' do
+      before do
+        post pepe_index_path
+        post pepe_index_path
+      end
+
+      it 'Does return status_code: 409' do
+        expect(response.status).to eq 409
       end
     end
 

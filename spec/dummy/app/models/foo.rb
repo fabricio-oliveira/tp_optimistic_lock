@@ -3,12 +3,13 @@
 #
 # Table name: foos
 #
-#  id    :integer          not null, primary key
-#  uuid  :string
-#  other :string
+#  id         :integer          not null, primary key
+#  other      :string
+#  uuid       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Foo < ActiveRecord::Base
-  # validates_with UniqueOptimistic
   acts_as_unique
 end
