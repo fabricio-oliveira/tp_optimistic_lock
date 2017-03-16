@@ -13,8 +13,8 @@ exemplo:
   end
 
 
-def other_sample
+  def other_sample
     Bar.create!(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
     #ActiveRecord::RecordInvalid UNIQUE constraint failed
     Bar.create!(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
-end
+  end
