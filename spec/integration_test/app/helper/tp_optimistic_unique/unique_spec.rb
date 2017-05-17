@@ -6,8 +6,8 @@ RSpec.describe TPRecordOptimistic, type: :request do
     context 'When have act_as_unique' do
       context 'create' do
         before do
-          post foo_index_path
-          post foo_index_path
+          post foo_index_path, uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla'
+          post foo_index_path, uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla'
         end
 
         it 'Does return status_code: 400 (get errors)' do
@@ -17,11 +17,11 @@ RSpec.describe TPRecordOptimistic, type: :request do
 
       context 'create!' do
         before do
-          post pepe_index_path
+          post pepe_index_path, uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla'
         end
 
         it 'raise error ActiveRecord::RecordInvalid' do
-          expect { post pepe_index_path }.to raise_error(ActiveRecord::RecordInvalid)
+          expect { post pepe_index_path, uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla' }.to raise_error(ActiveRecord::RecordInvalid)
         end
       end
     end
@@ -29,11 +29,11 @@ RSpec.describe TPRecordOptimistic, type: :request do
     context 'When unique is not activated' do
       context 'create' do
         before do
-          post bar_index_path
+          post bar_index_path, uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla'
         end
 
         it 'raise error ActiveRecord::RecordNotUnique' do
-          expect { post bar_index_path }.to raise_error(ActiveRecord::RecordNotUnique)
+          expect { post bar_index_path, uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla' }.to raise_error(ActiveRecord::RecordNotUnique)
         end
       end
     end

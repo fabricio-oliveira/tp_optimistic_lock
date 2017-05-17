@@ -11,6 +11,5 @@
 #
 
 class Pepe < ActiveRecord::Base
-  # validates :uuid, uniqueness: true
   acts_as_unique
 end

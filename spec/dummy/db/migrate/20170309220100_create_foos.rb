@@ -7,5 +7,6 @@ class CreateFoos < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :foos, :uuid, unique: true
+    add_index :foos, :other, unique: true
   end
 end

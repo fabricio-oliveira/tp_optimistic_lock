@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20_170_315_232_801) do
     t.datetime 'updated_at', null: false
   end
 
+  add_index 'foos', ['other'], name: 'index_foos_on_other', unique: true
   add_index 'foos', ['uuid'], name: 'index_foos_on_uuid', unique: true
 
   create_table 'pepes', force: :cascade do |t|

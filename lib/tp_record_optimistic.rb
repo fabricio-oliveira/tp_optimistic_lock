@@ -1,9 +1,21 @@
 # frozen_string_literal: true
 require 'active_record' unless defined? ActiveRecord
-# require 'active_model' unless defined? ActiveModel
+
+module SQLErrorParse
+  def unique_errors(error)
+    table = self.class.table_name
+    split_key = /(INSERT|UPDATE)/
+    especific_key = %w(UNIQUE constraint failed: SQLite3::ConstraintException:)
+    error.split(split_key)[0].split
+         .reject { |e| especific_key.include? e }
+         .map { |e| e.sub("#{table}.", '').delete(':') }
+         .map(&:to_sym)
+  end
+end
 
 module TPRecordOptimistic
   extend ActiveSupport::Concern
+  include SQLErrorParse
 
   def save(*args)
     super(*args)
@@ -14,7 +26,9 @@ module TPRecordOptimistic
   def save_optimistic(*args)
     old_save(*args)
   rescue ActiveRecord::RecordNotUnique => e
-    errors.add('all', e.to_s)
+    unique_errors(e.to_s).each do |field|
+      errors.add(field, :Unique, message: "UNIQUE constraint failed #{field}")
+    end
     return false
   end
 
@@ -30,10 +44,6 @@ module TPRecordOptimistic
     errors.add('all', e.to_s)
     raise ActiveRecord::RecordInvalid, self
   end
-
-  # def optimistic_unique
-  #   alias_method :save, :save_optimistic
-  # end
 end
 
 ActiveSupport.on_load(:active_record) do
