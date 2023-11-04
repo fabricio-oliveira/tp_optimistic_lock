@@ -1,6 +1,6 @@
 = TPOptimistic
 
-This gem improve the ActiveRecord to trate ActiveRecord::RecordNotUnique with optimistic behavior
+This gem extend the ActiveRecord to handle ActiveRecord::RecordNotUnique with optimistic behavior
 
 exemplo:
 
