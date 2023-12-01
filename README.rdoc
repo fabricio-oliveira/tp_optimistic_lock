@@ -8,13 +8,14 @@ example:
     Bar.create(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
     bar = Bar.create(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
     
-    #UNIQUE constraint failed
+    #error returned: UNIQUE constraint failed
     bar.errors
   end
 
 
   def other_sample
     Bar.create!(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
-    #ActiveRecord::RecordInvalid UNIQUE constraint failed
+    
+    #error raised: ActiveRecord::RecordInvalid UNIQUE constraint failed
     Bar.create!(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
   end
