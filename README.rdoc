@@ -1,8 +1,20 @@
-= TPOptimistic
+= TP optimistic lock
 
-This gem extend the ActiveRecord to handle ActiveRecord::RecordNotUnique with optimistic behavior
+This gem extends ActiveRecord to handle ActiveRecord::RecordNotUnique with an optimistic behavior.
+If a uniqueness violation is triggered by the database, it will be returned through the `errors` method.
+
+The purpose is to be more performative and assertive than `validates_uniqueness_of`, a Rails pessimistic instruction for handling uniqueness.
+
+`validates_uniqueness_of` performs a select query for each new insert to check unicity.
+`validates_uniqueness_of` doesn't work very well in an environment with high concurrency. The select and insert are atomic operations, so some attempts of insert the same record twice happens witha  high frequency.
+
 
 example:
+```
+  class Foo < ActiveRecord::Base
+    acts_as_unique #
+  end
+
 
   def sample
     Bar.create(uuid: '5ea880de-e4ce-4770-8d10-c89bac181e40', other: 'bla bla')
