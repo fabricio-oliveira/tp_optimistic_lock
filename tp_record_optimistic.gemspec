@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.name        = 'tp_record_optimistic'
   s.version     = TPRecordOptimistic::VERSION
   s.authors     = ['Fabricio Oliveira']
-  s.email       = ['fabricio.oliveira@m4u.com.br']
-  s.summary       = 'gem thas implement optimistic uuid'
-  s.homepage      = 'https://github.com/fabricio-oliveira/tp_optimistic-uuid'
+  s.email       = ['fabricioque@gmail.com']
+  s.summary       = 'gem that implement optimistic lock using unicity restriction from database'
+  s.homepage      = 'https://github.com/fabricio-oliveira/tp_optimistic_lock'
   s.license       = 'MIT'
 
   s.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
